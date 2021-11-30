@@ -13,7 +13,7 @@ class YoutubeListController extends StatefulWidget {
 class _YoutubeListState extends State<YoutubeListController> {
   static String api_key = "AIzaSyBAjtdSQFMRmBrylkTo2sZOuuaPs_AmqN0";
   List<YT_API> results = [];
-  YoutubeAPI yt = YoutubeAPI(api_key, maxResults: 10, type: "video");
+  YoutubeAPI yt = YoutubeAPI(api_key, maxResults: 30, type: "video");
   bool isLoaded = false;
   @override
   void initState() {
@@ -23,7 +23,7 @@ class _YoutubeListState extends State<YoutubeListController> {
 
   callApi() async {
     try {
-      results = await yt.search("HD Music");
+      results = await yt.search("風雲榜");
       print(results);
       setState(() {
         isLoaded = true;
@@ -35,7 +35,7 @@ class _YoutubeListState extends State<YoutubeListController> {
 
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
+    return AnnotatedRegion<SystemUiOverlayStyle>( // 修改狀態欄字體顏色
       value: SystemUiOverlayStyle(
           statusBarBrightness: Brightness.light,
           statusBarColor: Colors.transparent,
@@ -71,7 +71,7 @@ class _YoutubeListState extends State<YoutubeListController> {
                 padding: EdgeInsets.all(15),
                 margin: EdgeInsets.only(top: 10),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start, // 副軸方向的對齊方式
                   children: [
                     index == 0
                         ? Container(

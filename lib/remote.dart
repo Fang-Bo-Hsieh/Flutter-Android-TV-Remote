@@ -39,7 +39,7 @@ class _TVRemoteDemoState extends State<TVRemoteDemo> {
                         child:SizedBox(
                           height: 56,
                           width: 56,
-                          child: Icon(Icons.arrow_back),
+                          child: Icon(Icons.arrow_back), // use SizedBox to wrap Icon,  it resizes the widget using the height and width properties.
                         ),
                         onTap: (){
                           String key = "KEYCODE_BACK";
